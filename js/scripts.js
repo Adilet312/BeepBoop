@@ -3,8 +3,39 @@ $(document).ready(function()
   $("#formID").submit(function(event)
   {
       event.preventDefault();
-      var dataFromUser =parseFloat($("#inputID").val());
+      var dataFromUser =parseInt($("#inputID").val());
+      var stringVersion="";
+      var array =[];
+      var index=dataFromUser;
+     for(var outerIdx=dataFromUser; outerIdx>=0; outerIdx--)
+     {
+       stringVersion = outerIdx.toString()
 
+           for(var innerIdx=0; innerIdx<stringVersion.length; innerIdx++ )
+           {
+            console.log(stringVersion.length)
+             if(stringVersion[innerIdx]==='1')
+             {
+               stringVersion.slice(innerIdx,innerIdx+1);
+               console.log(stringVersion[innerIdx]);
+               stringVersion[innerIdx] = "Beep";
+               console.log(stringVersion[innerIdx]);
+             }
+             else if(stringVersion[innerIdx]==='2')
+             {
+               stringVersion[innerIdx]="Boop";
+             }
+             else if(stringVersion[innerIdx]==='3')
+             {
+               stringVersion[innerIdx]=" I'm sorry, Dave. I'm afraid I can't do that.";
+             }
+           }
+           array[index]=stringVersion;
+           index--;
+
+     }
+     console.log(array);
+    /*
       var matrix = [];
       var index = 0;
       var element ="";
@@ -37,20 +68,20 @@ $(document).ready(function()
               index++;
             }
           }
-          /*
+
           else if(index<20 && index>=10)
           {
-            if(index === 10 )
+            if(element === '10' )
             {
-              matrix[index] = "Beep";
+              matrix[index] = "Beep"+"0";
               index++;
             }
-            else if(index===2)
+            else if(element==='11')
             {
               matrix[index] = "Boop";
               index++;
             }
-            else if(index ===3)
+            else if(element ==='12')
             {
               matrix[index] = "I'm sorry, Dave. I'm afraid I can't do that.";
               index++;
@@ -59,7 +90,7 @@ $(document).ready(function()
             {
               index++;
             }
-          }*/
+          }
 
 
       }
