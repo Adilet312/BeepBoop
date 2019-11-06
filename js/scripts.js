@@ -1,9 +1,9 @@
-$(document).ready(function()
+/*
+    Beckend logic for numbers "Beep Boop".
+*/
+function beckEndfunction(data)
 {
-    $("#formID").submit(function(event){
-        event.preventDefault();
-        var data = parseInt($("#textID").val());
-        var array = [];
+    var array = [];
         var indexPosition=0;
         var str ="";
         for(var idx=0; idx<=data;idx++)
@@ -90,8 +90,8 @@ $(document).ready(function()
                 
             
         }
-        //Function was copied below link (splice() function doesn't support string and it works only with arrray, so below function was developed to work with string)
-       //https://stackoverflow.com/questions/20817618/is-there-a-splice-method-for-strings##targetText=No%2C%20there%20is%20no%20such,the%20string%20into%20an%20array.
+        // Function splices string data 
+       
         function spliceSlice(str, index, count, add) 
         {
             
@@ -106,7 +106,33 @@ $(document).ready(function()
           
             return str.slice(0, index) + (add || "") + str.slice(index + count);
           }
-          $("#output").text(array);
-    });
 
+    return array; 
+}
+/* Beckend logic for name ( takes a name. For numbers that are divisible by 3, 
+   replace the name Dave in "I'm sorry, Dave. I'm afraid I can't do that" with the name provided by the user. ) */
+   function nameDivisibleByThree(name)
+   {
+       var stringName = "";
+        if(name.length%3===0)
+        {
+            stringName = "I'm sorry, Dave. I'm afraid I can't do that. ( " +name+" is divisible by three.)";
+            return (stringName);
+        }
+        return (stringName);
+   }
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* Frontend logic  */
+$(document).ready(function()
+{
+   $("#formID").submit(function(event)
+    {
+        event.preventDefault();
+        var inputNumber = parseInt($("#textID").val());
+        var inputName = $("#textID2").val();
+       var numberResult = beckEndfunction(inputNumber);
+       var nameResult = nameDivisibleByThree(inputName);
+        $("#output").text(numberResult);
+        $("#outputName").text(nameResult);
+    });
 });

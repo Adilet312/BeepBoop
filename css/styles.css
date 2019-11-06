@@ -1,3 +1,19 @@
 h1{
   text-align: center;
 }
+.jumbotron{
+  background-color:lightblue;
+  background-origin: padding-box; 
+  
+  
+}
+#outputName{
+  background-color: lightgreen;
+  background-origin: padding-box;
+}
+
+
+
+
+
+
